@@ -1,16 +1,24 @@
+//main.go
 package main
 
 import (
-  "net/http"
-  "github.com/gin-gonic/gin"
+	"fleet-inventory/Config"
+	"fleet-inventory/Models"
+	"fleet-inventory/Routes"
+	"fmt"
+	"github.com/jinzhu/gorm"
 )
 
+var err error
+
 func main() {
-  r := gin.Default()
-
-  r.GET("/", func(c *gin.Context) {
-    c.JSON(http.StatusOK, gin.H{"data": "hello world"})    
-  })
-
-  r.Run()
+	Config.DB, err = gorm.Open("mysql", Config.DbURL(Config.BuildDBConfig()))
+	if err != nil {
+		fmt.Println("Status:", err)
+	}
+	defer Config.DB.Close()
+	Config.DB.AutoMigrate(&Models.Spacecraft{})
+	r := Routes.SetupRouter()
+	//running
+	r.Run()
 }
