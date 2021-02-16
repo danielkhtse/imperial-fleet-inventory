@@ -1,7 +1,9 @@
 //Models/SpacecraftModel.go
 package Models
 
-import "gorm.io/datatypes"
+import (
+	"github.com/jinzhu/gorm"
+  )
 
 type Spacecraft struct {
 	gorm.Model
@@ -11,7 +13,7 @@ type Spacecraft struct {
 	Image    string  `gorm:"not null"`
 	Value    float64 `gorm:"not null"`
 	Status   uint8   `gorm:"not null"`
-	Armament datatypes.JSON
+	Armament string  `gorm:"not null"`
 }
 
 func (b *Spacecraft) TableName() string {

@@ -17,7 +17,7 @@ func SetupRouter() *gin.Engine {
 		
 		grpsc.POST("create", Controllers.CreateSpacecraft)
 
-		grpsc.PUT("update/:id", Controllers.updateSpacecraft)
+		grpsc.PUT("update/:id", Controllers.UpdateSpacecraft)
 
 		grpsc.DELETE("delete/:id", Controllers.DeleteSpacecraft)
 	}

@@ -19,11 +19,11 @@ func GetAllSpacecraft(c *gin.Context) {
 	}
 }
 
-//GetSpacecraftByID ... Get the spacecraft by id
-func GetSpacecraftByID(c *gin.Context) {
+//GetSpacecraftById ... Get the spacecraft by id
+func GetSpacecraftById(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var spacecraft Models.Spacecraft
-	err := Models.GetSpacecraftByID(&spacecraft, id)
+	err := Models.GetSpacecraftById(&spacecraft, id)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
 	} else {
@@ -48,8 +48,8 @@ func CreateSpacecraft(c *gin.Context) {
 //UpdateSpacecraft ... Update the spacecraft information
 func UpdateSpacecraft(c *gin.Context) {
 	var spacecraft Models.Spacecraft
-	id := c.Params.ByClass("id")
-	err := Models.GetSpacecraftByID(&spacecraft, id)
+	id := c.Params.ByName("id")
+	err := Models.GetSpacecraftById(&spacecraft, id)
 	if err != nil {
 		c.JSON(http.StatusNotFound, spacecraft)
 	}

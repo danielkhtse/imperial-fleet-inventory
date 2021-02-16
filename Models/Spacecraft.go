@@ -15,8 +15,8 @@ func GetAllSpacecraft(spacecraft *[]Spacecraft) (err error) {
 	return nil
 }
 
-//GetSpacecraftByID ... Fetch only one spacecraft by Id
-func GetSpacecraftByID(spacecraft *Spacecraft, id string) (err error) {
+//GetSpacecraftById ... Fetch only one spacecraft by Id
+func GetSpacecraftById(spacecraft *Spacecraft, id string) (err error) {
 	if err = Config.DB.Where("id = ?", id).First(spacecraft).Error; err != nil {
 		return err
 	}
