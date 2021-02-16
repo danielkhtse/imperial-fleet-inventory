@@ -13,13 +13,9 @@ func SetupRouter() *gin.Engine {
 	{
 		grpsc.GET("list", Controllers.GetAllSpacecraft)
 
+		grpsc.GET("get/:id", Controllers.GetSpacecraftById)
+		
 		grpsc.POST("create", Controllers.CreateSpacecraft)
-
-		grpsc.GET("get/:name", Controllers.GetSpacecraftByName)
-
-		grpsc.GET("get:class", Controllers.GetSpacecraftByClass)
-
-		grpsc.GET("get/:status", Controllers.GetSpacecraftByStatus)
 
 		grpsc.PUT("update/:id", Controllers.updateSpacecraft)
 
