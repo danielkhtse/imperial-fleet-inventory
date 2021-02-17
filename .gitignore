@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+main
 
 #vscode files ignore
 .vscode/*

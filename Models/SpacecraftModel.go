@@ -7,8 +7,8 @@ import (
 
 type Spacecraft struct {
 	gorm.Model
-	Name     string  `gorm:"size:255"` // set field size to 255
-	Class    int     `gorm:"not null"`
+	Name     string  `gorm:"not null"`
+	Class    string  `gorm:"not null"`
 	Crew     uint    `gorm:"not null"`
 	Image    string  `gorm:"not null"`
 	Value    float64 `gorm:"not null"`
